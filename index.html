@@ -1,0 +1,48 @@
+<html ng-app="curso">
+	<head>
+		<title>Curso Angular</title>
+		<script type="text/javascript" src="js/angular.min.js"></script>
+		<script type="text/javascript" src="js/funciones.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	</head>
+	<body ng-controller="controladorBody">
+		<div>
+			<table>
+				<tr>
+					<td>Estado:</td>
+					<td>
+						<input type="text" ng-model="nb_estado" class="form-control">
+					</td>
+				</tr>
+				<tr>
+					<td>Ciudad:</td>
+					<td>
+						<input type="text" ng-model="nb_ciudad" class="form-control">
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" align="center">
+						<button ng-hide="sn_editar" ng-click="guadarDB()" class="btn btn-primary">Guardar</button>
+						<button ng-show="sn_editar" ng-click="guardarEdicion()" class="btn btn-primary">Guardar Edici&oacute;n</button>
+					</td>
+				</tr>
+			</table>
+			<br>
+			<table style="width:50%;">
+				<tr>
+					<th>Estado</th>
+					<th>Ciudad</th>
+					<th>Acciones</th>
+				</tr>
+				<tr ng-repeat="ciudad in ciudades">
+					<td>{{ciudad.NB_ESTADO}}</td>
+					<td>{{ciudad.NB_CIUDAD}}</td>
+					<td>
+						<img src="img/edit.png" ng-click="editar(ciudad)" style="cursor:pointer;width:25px;heigth:25px">
+						<img src="img/delete.png" ng-click="eliminarDB(ciudad)" style="cursor:pointer;width:25px;heigth:25px">
+					</td>
+				</tr>
+			</table>
+		</div>
+	</body>
+</html>
